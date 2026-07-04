@@ -1,0 +1,7 @@
+{
+  "ragas_scores": {
+    "faithfulness": 0.7166666666666666,
+    "answer_relevancy": 0.47536178650622246
+  },
+  "refusal_accuracy": 1.0
+}

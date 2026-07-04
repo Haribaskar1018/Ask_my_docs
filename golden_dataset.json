@@ -1,0 +1,52 @@
+[
+  {
+    "question": "How do you define a path parameter in FastAPI?",
+    "ground_truth": "You define a path parameter by declaring it as a function parameter with a type hint, using curly braces in the route, e.g. @app.get('/items/{item_id}') def read_item(item_id: int)."
+  },
+  {
+    "question": "What happens if you send a request with a path parameter of the wrong type?",
+    "ground_truth": "FastAPI validates the type automatically and returns a clear error response if the value doesn't match the declared type, e.g. sending text where an int is expected."
+  },
+  {
+    "question": "What is a query parameter?",
+    "ground_truth": "A query parameter is a function parameter that is not part of the path, automatically interpreted as a query parameter, e.g. ?skip=0&limit=10 in the URL."
+  },
+  {
+    "question": "Are query parameters required or optional in FastAPI?",
+    "ground_truth": "Query parameters are optional by default if given a default value in the function signature; they become required if no default value is set."
+  },
+  {
+    "question": "How do you send data in a request body?",
+    "ground_truth": "You define a Pydantic model describing the expected data structure and declare it as a parameter in your path operation function; FastAPI parses the incoming JSON body into that model."
+  },
+  {
+    "question": "Why does FastAPI use Pydantic models for request bodies?",
+    "ground_truth": "Pydantic models provide automatic data validation, type checking, and clear error messages, plus automatic API documentation generation."
+  },
+  {
+    "question": "What is Depends used for?",
+    "ground_truth": "Depends is used for dependency injection, allowing shared logic like authentication or database sessions to be reused across path operations."
+  },
+  {
+    "question": "Can dependencies in FastAPI be async functions?",
+    "ground_truth": "Yes, dependencies can be either async def or regular def functions; FastAPI handles both correctly."
+  },
+  {
+    "question": "What is the very first thing you need to do to create a FastAPI app?",
+    "ground_truth": "Import FastAPI and create an app instance, e.g. from fastapi import FastAPI; app = FastAPI()."
+  },
+  {
+    "question": "How do you run a FastAPI application locally for development?",
+    "ground_truth": "You run it using a server like uvicorn, e.g. uvicorn main:app --reload, which starts a local development server with auto-reload enabled."
+  },
+  {
+    "question": "What is the capital of France?",
+    "ground_truth": "NOT_FOUND — this question is unrelated to the FastAPI documentation and should be refused.",
+    "expect_refusal": true
+  },
+  {
+    "question": "How do I deploy a FastAPI app to AWS Lambda?",
+    "ground_truth": "NOT_FOUND — this specific topic is not covered in the ingested documentation pages.",
+    "expect_refusal": true
+  }
+]

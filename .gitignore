@@ -1,0 +1,5 @@
+﻿ragenv/
+chroma_db/
+__pycache__/
+*.pyc
+docs/
