@@ -56,9 +56,15 @@ def ask_stream():
         template = yaml.safe_load(f)["v3"]["template"]
     prompt = history_block + template.format(context=context_block, question=question)
 
+    scores = [c["relevance_score"] for c in top_contexts]
+    min_score, max_score = min(scores), max(scores)
+
     sources = []
     for c in top_contexts:
-        confidence_pct = round(sigmoid(c["relevance_score"]) * 100)
+        if max_score == min_score:
+            confidence_pct = 100
+        else:
+            confidence_pct = round((c["relevance_score"] - min_score) / (max_score - min_score) * 100)
         sources.append({
             "source": c["source"],
             "text": c["text"][:300],
