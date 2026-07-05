@@ -6,6 +6,20 @@ A production-grade Retrieval-Augmented Generation (RAG) system that answers ques
 
 ---
 
+## Why this isn't just another "chat with your PDF" demo
+
+Most portfolio RAG projects stop at vector search + a chat bubble. This one is built the way a production system actually needs to be:
+
+- **It measures itself.** A hand-verified golden dataset, scored with Ragas, wired into CI — not a vibes-based "looks right to me" demo.
+- **It knows when to say no.** 100% refusal accuracy on out-of-scope questions, enforced through the prompt design, not just hoped for.
+- **It shows its work.** Every answer is traceable to a specific retrieved chunk with a live confidence score — nothing is a black box.
+- **It's honest about tradeoffs.** The README documents a real precision-vs-completeness experiment (prompt strictness and retrieval breadth tuning) with the actual before/after numbers, not just a single cherry-picked score.
+- **It's a real tool, not a fixed demo.** Upload any PDF, TXT, or Markdown file and query it immediately — the pipeline isn't hardcoded to one dataset.
+- **It runs for $0.** Every component — LLM, embeddings, reranker, evaluator — is open-source and local. No API keys, no per-query cost, no vendor lock-in.
+- **It knows its own limits.** The "what I'd do with more time" section below isn't filler — it's a specific, honest list of the exact edges of what's been built (OCR gap, dataset size, judge-model bias), which is a stronger signal of engineering maturity than pretending it's finished.
+
+---
+
 ## Why this exists
 
 Standard chatbots can hallucinate — they generate plausible-sounding text even when they don't actually know the answer. That's a real risk for anything where trust matters: technical documentation, legal text, internal knowledge bases, personal documents.
@@ -129,3 +143,4 @@ Faithfulness and relevancy were tuned through direct experimentation — compari
 - **Persist uploaded documents across sessions** — uploads are currently session-scoped in the UI (the vector data persists on disk, but the dropdown forgets it on refresh); this is a deliberate simplicity tradeoff, not a bug.
 
 ---
+
