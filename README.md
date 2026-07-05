@@ -1,4 +1,21 @@
-# Ask My Docs
+<div align="center">
+
+# 🔍 Ask My Docs
+
+**A production-grade RAG system that never guesses — it cites its sources, or it declines to answer.**
+
+[![CI](https://github.com/Haribaskar1018/Ask_my_docs/actions/workflows/ci.yml/badge.svg)](https://github.com/Haribaskar1018/Ask_my_docs/actions)
+![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![Llama 3](https://img.shields.io/badge/LLM-Llama%203%20(Ollama)-4FD1C5)
+![ChromaDB](https://img.shields.io/badge/Vector%20Store-ChromaDB-orange)
+![Cost](https://img.shields.io/badge/API%20Cost-%240.00-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+[Demo](#demo) · [Highlights](#why-this-isnt-just-another-chat-with-your-pdf-demo) · [Architecture](#architecture) · [Results](#evaluation-results) · [Setup](#running-it-locally)
+
+</div>
+
+---
 
 A production-grade Retrieval-Augmented Generation (RAG) system that answers questions using only real, retrieved documents — and explicitly refuses to answer when it can't ground a claim in the source text. Built entirely with open-source models, running 100% locally with zero API cost.
 
@@ -6,7 +23,7 @@ A production-grade Retrieval-Augmented Generation (RAG) system that answers ques
 
 ---
 
-## Why this isn't just another "chat with your PDF" demo
+## 🎯 Why this isn't just another "chat with your PDF" demo
 
 Most portfolio RAG projects stop at vector search + a chat bubble. This one is built the way a production system actually needs to be:
 
@@ -20,13 +37,30 @@ Most portfolio RAG projects stop at vector search + a chat bubble. This one is b
 
 ---
 
-## Demo
+## 🎬 Demo
 
 [▶ Watch the 90-second demo](https://drive.google.com/file/d/1jbPm7f6hr9yFe2mazlwlfPlnaJdKbHKp/view?usp=drivesdk) — streaming answers, citation refusal, domain switching, and real-time document upload, all shown live.
 
+### Screenshots
+
+**Homepage — domain selector, upload button, and example question chips**
+![Homepage](screenshots/01-homepage.png)
+
+**A grounded answer, streamed live, with a source citation**
+![Grounded answer](screenshots/02-grounded-answer.png)
+
+**Retrieved sources with per-chunk confidence scores — nothing is a black box**
+![Confidence scores](screenshots/03-confidence-scores.png)
+
+**Citation enforcement in action — declining an out-of-scope question instead of guessing**
+![Refusal](screenshots/04-refusal.png)
+
+**Real-time upload — asking a question about a freshly uploaded PDF (a resume) seconds after upload**
+![Resume upload](screenshots/05-resume-upload.png)
+
 ---
 
-## Why this exists
+## 🤔 Why this exists
 
 Standard chatbots can hallucinate — they generate plausible-sounding text even when they don't actually know the answer. That's a real risk for anything where trust matters: technical documentation, legal text, internal knowledge bases, personal documents.
 
@@ -34,7 +68,7 @@ This project solves that by never letting the model answer from memory. Every re
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ```
 Documents (web pages / PDF / TXT / MD)
@@ -67,7 +101,7 @@ Two parallel retrieval methods (exact keyword match + semantic meaning match) ar
 
 ---
 
-## Features
+## ✨ Features
 
 - **Hybrid retrieval** — BM25 keyword search + vector semantic search, merged
 - **Cross-encoder reranking** — a second, slower-but-more-accurate model re-scores retrieved chunks for precision
@@ -83,7 +117,7 @@ Fully open-source stack — **Llama 3** (via Ollama), **ChromaDB**, **Sentence T
 
 ---
 
-## Evaluation results
+## 📊 Evaluation results
 
 Measured on a 12-question hand-verified golden dataset (10 answerable, 2 deliberately out-of-scope):
 
@@ -99,23 +133,27 @@ Faithfulness and relevancy were tuned through direct experimentation — compari
 
 ---
 
-## Tech stack
+## 🛠️ Tech stack
 
-| Component | Tool |
-|---|---|
-| LLM | Llama 3 (8B) via Ollama |
-| Embeddings | `all-MiniLM-L6-v2` (Sentence Transformers) |
-| Vector store | ChromaDB |
-| Keyword search | `rank_bm25` |
-| Reranker | `cross-encoder/ms-marco-MiniLM-L-6-v2` |
-| Evaluation | Ragas (faithfulness, answer relevancy) |
-| Backend | Flask, streaming NDJSON responses |
-| Frontend | Vanilla HTML/CSS/JS |
-| CI | GitHub Actions |
+| Component | Tool | What it does here |
+|---|---|---|
+| **LLM** | Llama 3 (8B) via **Ollama** | Generates answers locally, no API cost. Ollama exposes an OpenAI-compatible endpoint, which is also how evaluation is wired up without a paid API key. |
+| **Embeddings** | `all-MiniLM-L6-v2` (**Sentence Transformers**) | Converts text into vectors for semantic similarity search — the "meaning" half of hybrid retrieval. |
+| **Vector store** | **ChromaDB** | Stores and queries chunk embeddings per domain, with a separate collection created dynamically for every uploaded document. |
+| **Keyword search** | `rank_bm25` | Classic BM25 scoring — the "exact term match" half of hybrid retrieval, catches technical terms embeddings alone can miss. |
+| **Reranker** | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Re-scores the merged retrieval shortlist by jointly encoding (question, chunk) pairs — more accurate than embedding-distance alone, used only on the narrowed candidate set for speed. |
+| **Evaluation** | **Ragas** (faithfulness, answer relevancy) | Scores generated answers against retrieved context using an LLM-as-judge pattern, run against the golden dataset. |
+| **PDF parsing** | `pypdf` | Extracts text from uploaded PDFs for real-time ingestion. |
+| **Backend** | **Flask** + `flask-cors` | Serves the retrieval/generation pipeline as a streaming NDJSON API and handles file uploads. |
+| **Config** | `PyYAML` | Prompt templates are versioned in `prompts.yaml`, not hardcoded in application code. |
+| **Frontend** | Vanilla **HTML / CSS / JavaScript** | No framework — a single dependency-free page consuming the streaming API directly via `fetch()` and the Streams API. |
+| **CI/CD** | **GitHub Actions** | Validates configuration and evaluation thresholds on every push; fails the build if faithfulness regresses. |
+
+**Fully open-source, self-hosted stack — no OpenAI, Anthropic, Cohere, or any paid API anywhere in the pipeline.**
 
 ---
 
-## Running it locally
+## 🚀 Running it locally
 
 1. Install [Ollama](https://ollama.com) and pull the model:
    ```bash
@@ -139,7 +177,7 @@ Faithfulness and relevancy were tuned through direct experimentation — compari
 
 ---
 
-## What I'd do with more time
+## 🔭 What I'd do with more time
 
 - **OCR fallback for scanned PDFs** — the current PDF ingestion only extracts native text; a scanned/image-only PDF currently returns a clear error rather than a wrong answer, but adding `pytesseract`-based OCR would close this gap properly.
 - **Expand the golden dataset to 50+ questions** for a statistically stronger faithfulness score.
