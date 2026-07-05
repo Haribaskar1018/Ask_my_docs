@@ -20,6 +20,12 @@ Most portfolio RAG projects stop at vector search + a chat bubble. This one is b
 
 ---
 
+## Demo
+
+[▶ Watch the 90-second demo](https://drive.google.com/file/d/1jbPm7f6hr9yFe2mazlwlfPlnaJdKbHKp/view?usp=drivesdk) — streaming answers, citation refusal, domain switching, and real-time document upload, all shown live.
+
+---
+
 ## Why this exists
 
 Standard chatbots can hallucinate — they generate plausible-sounding text even when they don't actually know the answer. That's a real risk for anything where trust matters: technical documentation, legal text, internal knowledge bases, personal documents.
