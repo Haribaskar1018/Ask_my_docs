@@ -12,7 +12,7 @@
     --panel: #12161F;
     --panel-border: #1F2530;
     --text: #E4E7EB;
-    --muted: #6B7280;
+    --muted: #8B93A1;
     --teal: #4FD1C5;
     --amber: #E8A54B;
     --mono: 'IBM Plex Mono', monospace;
@@ -29,62 +29,77 @@
     font-family: var(--sans);
     min-height: 100vh;
     padding: 60px 20px 100px;
+    font-size: 16px;
   }
-  .wrap { max-width: 680px; margin: 0 auto; animation: fadeUp 0.5s ease both; }
+  .wrap { max-width: 700px; margin: 0 auto; animation: fadeUp 0.5s ease both; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .eyebrow {
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
     display: flex; align-items: center; gap: 8px;
   }
   .eyebrow::before {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
     background: var(--teal); box-shadow: 0 0 8px var(--teal);
     animation: glow 2s infinite ease-in-out;
   }
   @keyframes glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-  h1 { font-family: var(--mono); font-size: 1.9rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
-  .subtitle { color: var(--muted); font-size: 0.94rem; line-height: 1.5; margin-bottom: 28px; max-width: 520px; }
+  h1 { font-family: var(--mono); font-size: 2.1rem; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .subtitle { color: var(--muted); font-size: 1rem; line-height: 1.6; margin-bottom: 28px; max-width: 540px; }
   select {
-    padding: 10px 14px; border-radius: 8px; background: var(--panel); color: var(--text);
-    border: 1px solid var(--panel-border); font-family: var(--mono); font-size: 0.8rem;
+    padding: 11px 16px; border-radius: 8px; background: var(--panel); color: var(--text);
+    border: 1px solid var(--panel-border); font-family: var(--mono); font-size: 0.88rem;
     margin-bottom: 14px; cursor: pointer; transition: border-color 0.15s ease;
   }
   select:hover, select:focus { border-color: var(--teal); outline: none; }
+
+  .upload-box { margin-bottom: 16px; }
+  .upload-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; background: var(--panel); border: 1px dashed #38404E;
+    border-radius: 8px; cursor: pointer; font-family: var(--mono); font-size: 0.85rem;
+    color: var(--muted); transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .upload-label:hover { border-color: var(--teal); color: var(--teal); }
+  #uploadStatus {
+    font-family: var(--mono); font-size: 0.85rem; color: var(--teal);
+    margin-top: 10px; min-height: 20px;
+  }
+
   .query-box { display: flex; gap: 10px; margin-bottom: 8px; }
   input {
-    flex: 1; padding: 15px 16px; font-size: 0.95rem; font-family: var(--sans);
+    flex: 1; padding: 16px 18px; font-size: 1rem; font-family: var(--sans);
     border-radius: 10px; border: 1px solid var(--panel-border); background: var(--panel);
     color: var(--text); outline: none; transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(79,209,197,0.12); }
   input::placeholder { color: var(--muted); }
   button {
-    padding: 0 22px; background: var(--teal); color: #0B0E14; border: none; border-radius: 10px;
-    font-family: var(--mono); font-weight: 600; font-size: 0.85rem; cursor: pointer;
+    padding: 0 24px; background: var(--teal); color: #0B0E14; border: none; border-radius: 10px;
+    font-family: var(--mono); font-weight: 600; font-size: 0.92rem; cursor: pointer;
     transition: opacity 0.15s ease, transform 0.1s ease;
   }
   button:hover { opacity: 0.85; }
   button:active { transform: translateY(1px) scale(0.98); }
   button:disabled { opacity: 0.4; cursor: not-allowed; }
-  .hint { font-size: 0.78rem; color: var(--muted); margin-bottom: 12px; }
+  .hint { font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
   .chip {
-    font-family: var(--mono); font-size: 0.72rem; padding: 6px 12px; border-radius: 20px;
+    font-family: var(--mono); font-size: 0.8rem; padding: 7px 14px; border-radius: 20px;
     border: 1px solid var(--panel-border); background: var(--panel); color: var(--muted);
     cursor: pointer; transition: all 0.15s ease;
   }
   .chip:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
-  .trail { display: none; gap: 0; margin: 28px 0; font-family: var(--mono); font-size: 0.72rem; }
+  .trail { display: none; gap: 0; margin: 28px 0; font-family: var(--mono); font-size: 0.8rem; }
   .trail.active { display: flex; animation: fadeUp 0.3s ease both; }
   .trail-step { flex: 1; text-align: center; position: relative; color: var(--muted); padding-bottom: 14px; transition: color 0.2s ease; }
   .trail-step::before {
-    content: ""; display: block; width: 9px; height: 9px; border-radius: 50%;
+    content: ""; display: block; width: 10px; height: 10px; border-radius: 50%;
     background: var(--panel-border); margin: 0 auto 8px;
     transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
   .trail-step::after {
-    content: ""; position: absolute; top: 4px; left: 50%; width: 100%; height: 1px;
+    content: ""; position: absolute; top: 5px; left: 50%; width: 100%; height: 1px;
     background: var(--panel-border); z-index: -1;
   }
   .trail-step:last-child::after { display: none; }
@@ -95,47 +110,69 @@
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.85); } }
   #result { margin-top: 8px; }
   .verdict {
-    display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono);
-    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
-    padding: 5px 10px; border-radius: 5px; margin-bottom: 14px; animation: fadeUp 0.3s ease both;
+    display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono);
+    font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 7px 14px; border-radius: 6px; margin-bottom: 16px; animation: fadeUp 0.3s ease both;
+    font-weight: 600;
   }
-  .verdict.grounded { color: var(--teal); background: rgba(79,209,197,0.1); border: 1px solid rgba(79,209,197,0.3); }
-  .verdict.declined { color: var(--amber); background: rgba(232,165,75,0.1); border: 1px solid rgba(232,165,75,0.3); }
+  .verdict.grounded { color: var(--teal); background: rgba(79,209,197,0.12); border: 1px solid rgba(79,209,197,0.35); }
+  .verdict.declined { color: var(--amber); background: rgba(232,165,75,0.12); border: 1px solid rgba(232,165,75,0.35); }
   .verdict.streaming { color: var(--muted); background: transparent; border: 1px solid var(--panel-border); }
   .answer-box {
     background: var(--panel); border: 1px solid var(--panel-border); border-radius: 12px;
-    padding: 20px; line-height: 1.6; font-size: 0.95rem; white-space: pre-wrap;
+    padding: 22px; line-height: 1.7; font-size: 1.02rem; white-space: pre-wrap;
     animation: fadeUp 0.35s ease both; min-height: 24px;
   }
   .cursor {
-    display: inline-block; width: 7px; height: 1em; background: var(--teal);
+    display: inline-block; width: 8px; height: 1.1em; background: var(--teal);
     vertical-align: text-bottom; margin-left: 2px; animation: blink 0.9s infinite;
   }
   @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-  .stats-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
-  .cost-line { font-family: var(--mono); font-size: 0.72rem; color: var(--teal); margin-bottom: 16px; }
+
+  /* Highlighted stats panel — was tiny/muted, now a real card */
+  .metrics-panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 18px 0;
+    animation: fadeUp 0.3s ease both;
+  }
+  .metrics-title {
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  }
+  .stats-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; }
+  .stat-item { display: flex; flex-direction: column; gap: 2px; }
+  .stat-value { font-family: var(--mono); font-size: 1.1rem; font-weight: 600; color: var(--text); }
+  .stat-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .cost-line {
+    font-family: var(--mono); font-size: 0.95rem; color: var(--teal); font-weight: 600;
+    padding-top: 12px; border-top: 1px solid var(--panel-border);
+  }
+
   .sources-label {
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--muted); margin: 28px 0 12px;
   }
   .source-card {
-    background: var(--panel); border: 1px solid var(--panel-border); border-left: 2px solid var(--teal);
-    border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 10px; font-size: 0.83rem;
-    color: var(--muted); line-height: 1.5; animation: fadeUp 0.3s ease both;
+    background: var(--panel); border: 1px solid var(--panel-border); border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 0.92rem;
+    color: var(--muted); line-height: 1.6; animation: fadeUp 0.3s ease both;
   }
-  .source-card b { color: var(--text); font-family: var(--mono); font-size: 0.78rem; display: block; margin-bottom: 4px; }
-  .confidence-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .confidence-label { font-family: var(--mono); font-size: 0.7rem; }
-  .confidence-bar-track { background: var(--panel-border); height: 4px; border-radius: 2px; margin-bottom: 8px; overflow: hidden; }
+  .source-card b { color: var(--text); font-family: var(--mono); font-size: 0.85rem; display: block; margin-bottom: 6px; }
+  .confidence-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .confidence-label { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; }
+  .confidence-bar-track { background: var(--panel-border); height: 5px; border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
   .confidence-bar-fill { height: 100%; }
   .history-note {
-    font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-bottom: 14px;
+    font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-bottom: 14px;
     display: flex; align-items: center; gap: 6px;
   }
   .history-note::before { content: "↳"; color: var(--teal); }
   footer {
     margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--panel-border);
-    font-family: var(--mono); font-size: 0.72rem; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.78rem; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap;
   }
   footer span { display: flex; align-items: center; gap: 6px; }
   footer span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--muted); }
@@ -157,6 +194,12 @@
     <option value="requests">Requests library docs</option>
     <option value="resume">My resume</option>
   </select>
+
+  <div class="upload-box">
+    <label for="fileUpload" class="upload-label">📎 Upload your own document (PDF, TXT, MD)</label>
+    <input type="file" id="fileUpload" accept=".pdf,.txt,.md" style="display:none;" onchange="handleUpload(event)">
+    <div id="uploadStatus"></div>
+  </div>
 
   <div class="query-box">
     <input type="text" id="question" placeholder="e.g. What is Depends used for?" onkeydown="if(event.key==='Enter') askQuestion()">
@@ -190,6 +233,41 @@
 
 <script>
 let conversationHistory = [];
+
+async function handleUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const statusDiv = document.getElementById("uploadStatus");
+  statusDiv.textContent = "Uploading and processing " + file.name + "...";
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const response = await fetch("http://localhost:5000/upload", {
+      method: "POST",
+      body: formData
+    });
+    const data = await response.json();
+
+    if (data.error) {
+      statusDiv.textContent = "Error: " + data.error;
+      return;
+    }
+
+    const domainSelect = document.getElementById("domain");
+    const option = document.createElement("option");
+    option.value = data.domain;
+    option.textContent = data.filename + " (uploaded)";
+    domainSelect.appendChild(option);
+    domainSelect.value = data.domain;
+
+    statusDiv.textContent = "✓ Ready — " + data.chunks_created + " chunks indexed. Ask away!";
+  } catch (err) {
+    statusDiv.textContent = "Upload failed — check the server is running.";
+  }
+}
 
 function fillAndAsk(text) {
   document.getElementById("question").value = text;
@@ -273,16 +351,21 @@ async function askQuestion() {
           ? '<div class="verdict declined">⚠ Declined — not grounded in docs</div>'
           : '<div class="verdict grounded">✓ Grounded answer</div>';
 
-        const statsHtml = '<div class="stats-row">' +
-          '<span>⏱ retrieval ' + retrievalMs + 'ms</span>' +
-          '<span>⏱ rerank ' + rerankMs + 'ms</span>' +
-          '<span>⏱ generation ' + msg.timing.generation_ms + 'ms</span>' +
-          '<span>⏱ total ' + msg.timing.total_ms + 'ms</span></div>' +
-          '<div class="cost-line">💰 This query: $0.00 (local) — would cost ~$' + msg.cost.estimated_gpt4o_cost + ' on GPT-4o</div>';
+        const metricsHtml =
+          '<div class="metrics-panel">' +
+            '<div class="metrics-title">Pipeline performance</div>' +
+            '<div class="stats-row">' +
+              '<div class="stat-item"><span class="stat-value">' + retrievalMs + 'ms</span><span class="stat-label">Retrieval</span></div>' +
+              '<div class="stat-item"><span class="stat-value">' + rerankMs + 'ms</span><span class="stat-label">Rerank</span></div>' +
+              '<div class="stat-item"><span class="stat-value">' + msg.timing.generation_ms + 'ms</span><span class="stat-label">Generation</span></div>' +
+              '<div class="stat-item"><span class="stat-value">' + msg.timing.total_ms + 'ms</span><span class="stat-label">Total</span></div>' +
+            '</div>' +
+            '<div class="cost-line">💰 This query cost $0.00 locally — would cost ~$' + msg.cost.estimated_gpt4o_cost + ' on GPT-4o</div>' +
+          '</div>';
 
         resultDiv.innerHTML = verdictHtml +
           '<div class="answer-box">' + answerText.replace(/</g, "&lt;") + '</div>' +
-          statsHtml + sourcesHtml;
+          metricsHtml + sourcesHtml;
 
         conversationHistory.push({ question: question, answer: answerText });
         if (conversationHistory.length > 3) conversationHistory.shift();

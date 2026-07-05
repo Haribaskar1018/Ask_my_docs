@@ -10,8 +10,12 @@ DOMAINS = {
     "fastapi": {"chunks_file": "chunks.json", "collection": "fastapi_docs"},
     "requests": {"chunks_file": "chunks_requests.json", "collection": "requests_docs"},
     "resume": {"chunks_file": "chunks_resume.json", "collection": "resume_docs"},
-
 }
+
+def register_domain(domain_name, chunks_file, collection_name):
+    DOMAINS[domain_name] = {"chunks_file": chunks_file, "collection": collection_name}
+    if domain_name in _cache:
+        del _cache[domain_name]
 
 _cache = {}
 
