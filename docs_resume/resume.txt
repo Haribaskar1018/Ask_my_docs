@@ -1,0 +1,54 @@
+HARI BASKAR B
+/envel⌢peharibaskarb23cb@psnacet.edu.in♂phone+91-9080669923/linkedinhari-baskar-b
+/githubHaribaskar1018/codeLeetCode♂¶ap-¶arker-altTamil Nadu, India
+Professional Summar y
+Pre-final year B.Tech Computer Science student (2027) andSIH 2025 National Finalistwith hands-on experience building and
+deploying AI/ML systems, REST APIs, and full-stack web applications. Demonstrated ability to deliver end-to-end products — from
+architecture to production deployment — validated at national and international levels. Seeking internship or full-time roles in
+Software Engineering, AI/ML, Data Science, or Backend Developmentat a product & service-driven technology company.
+Educa tion
+PSNA College of Engineering and Technology Dindigul, Tamil Nadu
+B.Tech — Computer Science & Business Systems (CSBS)CGPA: 7.772023 – 2027
+–Coursework: Data Structures & Algorithms, DBMS, AI/ML, Computer Networks, Operating Systems, OOP (Java)
+Vikaasa School Tamil Nadu
+Class XII — ICSE Board72.8% 2023
+Vikaasa School Tamil Nadu
+Class X — ICSE Board88.67% 2021
+Achievements & Recognition
+/awardSmart India Hackathon 2025—National Finalist|Top 3% of 1,00,000+ teams2025
+–Engineered and demoed a production-ready AI solution under 5-day sprint conditions to a national jury of industry and
+government experts.
+Ὠ0NASA Space Apps Challenge 2024—Global Nominee|Top tier from 57,000+ participants worldwide2024
+–Recognised internationally for innovative space-tech solution; one of the highest-ranked teams selected across all global
+submissions.
+/buildingT-Hub Incubation, Hyderabad— Product & Startup Ecosystem Exposure2024
+–Engaged with India’s No.1 startup incubator; exposure to product thinking, scalable system design, and early-stage venture
+development.
+Projects
+Multilingual Voice AI Assistant|Python, Flask, REST APIs, NLP, Semantic Search, Render|/githubGitHub2025|Live
+–End-to-end voice AI system: speech input→semantic NLP query engine over 89+ data entries→text-to-speech response;
+deployed on Render with sub-2s latency.
+–Integrated third-party ASR/TTS APIs; demonstrates production API integration, error handling, and scalable Flask architecture.
+RAG Document Intelligence System|Python, LangChain, FAISS, Gemini API, Streamlit|/githubGitHub/external-link-altLive Demo2025
+–Built a Retrieval-Augmented Generation pipeline enabling natural language Q&A over any uploaded PDF; FAISS vector store +
+Gemini embeddings for high-accuracy retrieval.
+–Applicable to enterprise document search, legal tech, and knowledge management — extensible to any domain with zero retraining.
+Land Dispute Resolution System|Java, Python, Flask, NLP, SQL|/githubGitHub2025
+–NLP-powered legal document parser that extracts dispute entities, classifies conflict types, and ranks resolution pathways using
+ML models.
+–Demonstrates applied NLP in a legal-tech context — entity extraction, multi-class classification, and structured SQL-backed case
+management.
+AI Scheme Eligibility Chatbot|Python, Streamlit, Gemini API, Prompt Engineering2025|Streamlit Cloud
+–Conversational AI assistant using context-injection prompting and a structured knowledge base; achieves accurate eligibility
+matching across 15+ complex policy rule sets.
+Technical Skills
+Languages:Java, Python, JavaScript, SQL, HTML, CSS
+AI / ML:NLP, Semantic Search, Retrieval-Augmented Generation (RAG), LangChain, FAISS, Gemini API, scikit-learn, K-Means
+Clustering, Prompt Engineering
+Backend & APIs:REST API Design, Flask, Spring Boot, SpeechRecognition, gTTS, Third-Party API Integration
+Frontend & Data:React, Streamlit, Pandas, Plotly, Chart.js, Folium, GeoPandas
+DevOps & Cloud:Git, GitHub Actions, Docker, Render, Streamlit Cloud, Linux CLI, Postman
+Tools & Platforms:VS Code, Google Colab, Jupyter Notebook, IntelliJ IDEA
+Cer tifica tions
+Google— Crash Course on Python Coursera
+IBM— AI Foundations for Everyone|GitHub— Foundations of GitHub CopilotCoursera / GitHub

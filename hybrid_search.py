@@ -9,6 +9,8 @@ client = chromadb.PersistentClient(path="./chroma_db")
 DOMAINS = {
     "fastapi": {"chunks_file": "chunks.json", "collection": "fastapi_docs"},
     "requests": {"chunks_file": "chunks_requests.json", "collection": "requests_docs"},
+    "resume": {"chunks_file": "chunks_resume.json", "collection": "resume_docs"},
+
 }
 
 _cache = {}
